@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  background-color: #050505;
+  color: #ffffff;
+}
+
+/* KUNCI MOBILE: Mencegah scroll & zoom tidak sengaja */
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Gak ada scroll bar */
+  touch-action: manipulation; /* Optimasi sentuhan */
+  -webkit-tap-highlight-color: transparent; /* Hilangkan kotak biru pas klik di Android/iOS */
+}
+
+/* Kelas Kaca (Glassmorphism) untuk Toast & Modal */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Selection Color */
+::selection {
+  background: rgba(255, 77, 77, 0.3); /* Warna seleksi teks merah muda */
+}
+
+/* EFEK NOISE / FILM GRAIN */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.07; /* Atur transparansi biar gak terlalu ganggu */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ANIMASI BACKGROUND GERAK LAMBAT (Aurora Gelap) */
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #000000);
+  background-size: 400% 400%;
+  animation: gradient-move 15s ease infinite;
+}
