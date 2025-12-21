@@ -113,7 +113,7 @@ const QuizSystem = ({ onFinished }: QuizProps) => {
       q: "Siapa yang paling sering 'Ngalah' kalau kita lagi debat kecil?",
       options: [
         { text: "Aku (Manda)", msg: "Masa? Perasaan kamu batu banget deh 🗿" },
-        { text: "Kamu (Yang bikin web)", msg: "Bener banget. Sabar banget kan aku ngadepin kamu? 😇" }, // BENAR
+        { text: "Azriel (Yang bikin web)", msg: "Bener banget. Sabar banget kan aku ngadepin kamu? 😇" }, // BENAR
         { text: "Gak ada", msg: "Perang dunia dong kalau gitu..." }
       ],
       correctIndex: 1

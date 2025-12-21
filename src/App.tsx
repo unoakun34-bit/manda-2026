@@ -20,7 +20,8 @@ type SceneState = 'OPENING' | 'STORY' | 'QUIZ' | 'WISH' | 'ENDING';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [scene, setScene] = useState<SceneState>('OPENING'); // Mulai langsung di Opening
+  // const [scene, setScene] = useState<SceneState>('OPENING');
+  const [scene, setScene] = useState<SceneState>('ENDING');
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   // --- FEATURE: DYNAMIC TITLE ---

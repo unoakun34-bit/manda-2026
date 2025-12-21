@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Gift, Ticket, ChevronRight, MessageCircle, Clock, Coffee, Ear, BookOpen, X } from 'lucide-react';
+import { Gift, Ticket, ChevronRight, MessageCircle, Clock, Coffee, Ear, BookOpen, X, Crown, Phone, Zap, HeartHandshake, Video, AlarmClock, Camera, ShieldAlert } from 'lucide-react';
 
 const GiftBox = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,34 +11,106 @@ const GiftBox = () => {
     {
       id: 1,
       title: "Tiket Anti Kacang 🥜",
-      desc: "Pakai kupon ini, aku WAJIB bales chat kamu dalam 1 menit. Gak boleh alesan ketiduran, gaming, atau lagi boker.",
+      desc: "Pakai kupon ini, azriel WAJIB bales chat manda dalam 1 menit. Gak boleh alesan ketiduran, gaming, atau lagi boker.",
       icon: <Clock size={32} className="text-white" />,
       bg: "bg-gradient-to-br from-blue-400 to-blue-600",
       waMsg: "Aku mau klaim Tiket Anti Kacang! Bales cepet dong, darurat nih! 😤"
     },
     {
       id: 2,
-      title: "Jasa Curhat VIP 👂",
-      desc: "Sesi curhat 24 jam tanpa di-judge. Mau ngeluh soal guru killer, temen toxic, atau random thoughts, aku dengerin sampe abis.",
-      icon: <Ear size={32} className="text-white" />,
-      bg: "bg-gradient-to-br from-purple-400 to-purple-600",
-      waMsg: "Kupon Curhat VIP aktif! Siapin kuping ya, aku mau cerita panjang... 🥺"
+      title: "Kartu 'Manda Selalu Bener' 👑",
+      desc: "Lagi debat? Pake kartu ini, otomatis azriel yang salah dan manda yang menang. Berlaku untuk segala jenis perdebatan.",
+      icon: <Crown size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-yellow-400 to-orange-500",
+      waMsg: "Aku pake Kartu 'Manda Selalu Bener'. Jadi kamu harus ngalah sekarang juga! 👑"
     },
     {
       id: 3,
-      title: "Traktiran Kantin 🍢",
-      desc: "Tukarkan untuk 1x jajan gratis di kantin. (Syarat: Maksimal Rp 15.000 ya, dompet pelajar bos, belum kerja 🤣)",
-      icon: <Coffee size={32} className="text-white" />,
-      bg: "bg-gradient-to-br from-orange-400 to-orange-600",
-      waMsg: "Nagih janji Traktiran Kantin! Awas kabur ya, aku laper 🍢"
+      title: "Jasa Temen Begadang 🦇",
+      desc: "Manda belum ngantuk jam 2 pagi? Panggil azriel. Aku siap nemenin chat/call sampe manda ketiduran (walau mataku 5 watt).",
+      icon: <Phone size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-purple-500 to-indigo-600",
+      waMsg: "Woi, temenin begadang dong. Jangan tidur dulu! 🦇"
     },
     {
       id: 4,
-      title: "Bantuan PR Dadakan 📚",
-      desc: "Buntu ngerjain tugas? Panggil aku. (Disclaimer: Kalau Matematika Minat, kita nangis bareng ya).",
+      title: "Traktiran Jajan Eskrim 🍦",
+      desc: "Tukarkan ini di sekolah/luar. Azriel beliin jajan apa aja (maksimal seharga ginjal... canda). Yuk gass!",
+      icon: <Ticket size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-pink-400 to-rose-500",
+      waMsg: "Nagih janji! Kapan nih traktiran jajan eskrim-nya? 🍦"
+    },
+    {
+      id: 5,
+      title: "Peredam Mode Maung 🦁",
+      desc: "Lagi badmood/PMS? Aktifin ini, azriel bakal ngehibur, ngelawak garing, atau jadi pendengar setia sampe mood kamu balik.",
+      icon: <Zap size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-red-500 to-red-700",
+      waMsg: "Lagi badmood nih. Buruan hibur aku sekarang! Awas kalo garing! 🦁"
+    },
+    {
+      id: 6,
+      title: "Free Call 'Kangen' 🤙",
+      desc: "Berlaku kapan aja. Kalau manda kangen (atau gabut), telepon aja. Pasti diangkat. Kalau gak diangkat, spam aja.",
+      icon: <HeartHandshake size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-violet-500 to-fuchsia-600",
+      waMsg: "Ehem... mau pake kupon Free Call nih. Siap-siap ya! 🤙"
+    },
+    {
+      id: 7,
+      title: "Tiket VC Dadakan 📹",
+      desc: "Bebas Video Call kapan aja tanpa janjian. Azriel wajib angkat (kecuali lagi di WC atau ....).",
+      icon: <Video size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-indigo-500 to-blue-500",
+      waMsg: "Mau pake Tiket VC Dadakan! Angkat sekarang atau aku ngambek! 📹"
+    },
+    {
+      id: 8,
+      title: "Jasa Alarm Manusia ⏰",
+      desc: "Takut telat bangun pagi? Atau mau dibangunin sahur? Azriel siap telpon/spam chat sampe manda beneran bangun.",
+      icon: <AlarmClock size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-red-400 to-orange-500",
+      waMsg: "Besok bangunin aku jam ... (isi jamnya). Awas telat banguninnya! ⏰"
+    },
+    {
+      id: 9,
+      title: "Bantuan PR / Tugas 📚",
+      desc: "Lagi pusing tugas sekolah? Sini azriel bantuin (atau seenggaknya aku temenin pusing bareng biar adil).",
       icon: <BookOpen size={32} className="text-white" />,
-      bg: "bg-gradient-to-br from-emerald-400 to-emerald-600",
-      waMsg: "Help! Butuh bantuan PR nih, Kupon Bantuan aktif! 📚"
+      bg: "bg-gradient-to-br from-green-500 to-emerald-600",
+      waMsg: "Pusing tugas nih. Bantuin kerjain dong (atau semangatin kek)! 📚"
+    },
+    {
+      id: 10,
+      title: "Sesi Gibah VIP ☕",
+      desc: "Ada hot news di sekolah? Ceritain ke azriel. Azriel siap jadi pendengar setia dan 'kompor' yang baik.",
+      icon: <Coffee size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-yellow-500 to-amber-600",
+      waMsg: "Urgent! Ada gosip panas nih. Siap-siap dengerin curhatan aku! ☕"
+    },
+    {
+      id: 11,
+      title: "Request PAP Aib 📸",
+      desc: "Kamu boleh minta azriel kirim foto apa aja. Foto muka bantal? Foto aib pas kecil? Foto lagi melongo? Gass.",
+      icon: <Camera size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-pink-500 to-rose-500",
+      waMsg: "Klaim Request PAP! Kirim foto kamu yang lagi... (isi sendiri) 📸"
+    },
+    {
+      id: 12,
+      title: "Perlindungan Anti-Ghosting 🛡️",
+      desc: "Kalau azriel ngilang tanpa kabar > 1 jam, manda berhak spam chat sampe HP aku meledak.",
+      icon: <ShieldAlert size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-slate-600 to-gray-700",
+      waMsg: "Kamu ngilang kemana?! Aktifin Proteksi Anti-Ghosting sekarang! Muncul gak! 🛡️"
+    },
+    {
+      id: 8,
+      title: "Tong Sampah Emosi 👂",
+      desc: "Lagi kesel sama temen/guru/ortu? Luapin ke azriel. Azriel gak bakal nge-judge, cuma dengerin dan dukung kamu.",
+      icon: <Ear size={32} className="text-white" />,
+      bg: "bg-gradient-to-br from-cyan-500 to-blue-600",
+      waMsg: "Lagi emosi berat nih. Mau marah-marah, dengerin ya! 👂"
     }
   ];
 
@@ -51,7 +123,7 @@ const GiftBox = () => {
   };
 
   const handleClaim = (msg: string) => {
-    const phoneNumber = "6281234567890"; // GANTI NOMOR WA KAMU DISINI
+    const phoneNumber = "6288746041375"; // GANTI NOMOR WA KAMU DISINI
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`, '_blank');
   };
 

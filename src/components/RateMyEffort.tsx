@@ -69,7 +69,7 @@ const RateMyEffort = () => {
           <Heart className="text-green-400 fill-green-400 animate-bounce" size={32} />
           <h3 className="text-white font-bold">Yeay! Makasih ⭐⭐⭐⭐⭐</h3>
           <p className="text-xs text-gray-300">
-            Bayarannya transfer pake senyuman pas ketemu besok ya!
+            Bayarannya transfer pake senyuman pas ketemu yaaa....!
           </p>
         </motion.div>
       )}

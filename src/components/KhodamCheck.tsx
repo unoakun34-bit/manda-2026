@@ -8,13 +8,26 @@ const KhodamCheck = () => {
 
   // DAFTAR KHODAM (LUCU & RELATE)
   const khodams = [
+    "Sinyal Edge (Lemot banget bales chatnya) 📶",
     "Kulkas 2 Pintu (Luarnya dingin, dalemnya manis) 🧊",
-    "Kucing Oren (Galak tapi gemesin) 🐱",
-    "Wifi Sekolah (Kadang nyambung, kadang ilang) 📶",
-    "CCTV Kantin (Diem-diem memantau) 📹",
-    "Es Batu (Keras kepala tapi bisa cair) 🧊",
-    "Powerbank (Selalu dicari pas butuh) 🔋",
-    "Kanebo Kering (Kaku banget bu...) 🧹"
+    "Seblak Ceker (Pedas, tapi bikin nagih) 🌶️",
+    "Kasur Empuk (Hatinya lembut, hobinya rebahan) 🛌",
+    "CCTV Kantin (Diem-diem memantau gerak-gerikku) 📹",
+    "Lem Korea (Sekali nempel/bucin, susah lepas) 🧪",
+    "Es Batu (Keras kepala tapi bisa cair juga) 🧊",
+    "Bel Istirahat (Paling ditunggu-tunggu kehadirannya) 🔔",
+    "Kucing Oren (Galak, bar-bar, tapi gemesin) 🐱",
+    "Batre Lowbat (Dikit-dikit minta dicas perhatian) 🪫",
+    "Kanebo Kering (Kaku banget bu... senyum dong) 🧹",
+    "Tahu Bulat (Mood-nya berubah-ubah dadakan) 🍡",
+    "Powerbank (Selalu dicari pas lagi butuh sandaran) 🔋",
+    "Kipas Angin (Tukang bikin adem suasana) 🌬️",
+    "Wifi Sekolah (Kadang nyambung, kadang ilang tanpa kabar) 📶",
+    "Knalpot Brong (Berisik banget kalau lagi ngomel) 🏍️",
+    "Google Maps (Suka bikin bingung arah hubungan) 🗺️",
+    "Cilok Bumbu Kacang (Kenyal-kenyal ngeselin) 🍢",
+    "Payung Hitam (Siap sedia pas lagi sedih/hujan) ☂️",
+    "Uang Kaget (Bikin seneng sesaat, terus ngilang lagi) 💸"
   ];
 
   const handleCheck = () => {

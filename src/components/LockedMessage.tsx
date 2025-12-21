@@ -111,16 +111,16 @@ const LockedMessage = () => { // <--- Nama sudah disesuaikan jadi LockedMessage
                   Oh iya, satu lagi. Tolong ya, itu hobi <strong className="text-white decoration-pink-500 underline underline-offset-4">begadang sampai jam 3 pagi</strong> dikurangin. Kemarin pas sakit, dibilangin malah ngeyel <em className="text-white">"gak ngaruh, gak ngaruh"</em>. Dasar batu.
                 </p>
                 <p className="text-xs opacity-70">
-                  Aku ngomel gini karena aku peduli. Jaga kesehatan, Man. Aku gak mau liat kamu sakit lagi.
+                  Aku ngomel gini karena aku peduli. Jaga kesehatan, Man. Aku gak mau liat kamu sakit.
                 </p>
               </div>
 
               <p>
-                Tenang aja, aku gak bakal nuntut status apa-apa. Cuma mau bilang: Aku nyaman ngobrol sama kamu. Tolong jangan berubah ya, tetep jadi Manda yang asik, jutek, dan gengsian kayak biasa.
+                Tenang aja, aku gak bakal nuntut status apa-apa. Cuma mau bilang: Aku nyaman ngobrol sama kamu. Tolong jangan berubah ya, tetep jadi Manda yang asik, jutek, dan gengsian kayak biasa. Jangan menghilang.
               </p>
 
               <p>
-                Jadi, biarlah aku jadi pengagum rahasiamu di 'bawah tanah' dulu ya?
+                Jadi, biarlah aku jadi pengagum rahasiamu di 'bayang-bayang' dulu ya?
               </p>
 
               <p>
@@ -154,4 +154,4 @@ const LockedMessage = () => { // <--- Nama sudah disesuaikan jadi LockedMessage
   );
 };
 
-export default LockedMessage; // <--- Export default LockedMessage
+export default LockedMessage;

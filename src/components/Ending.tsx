@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Send, RotateCcw } from 'lucide-react';
 
-// IMPORT SEMUA FITUR
-import Contract from './Contract';
+// IMPORT SEMUA KOMPONEN
+import Contract from './Contract';          // Pastikan kode Contract yang BARU sudah dipasang
 import SoulmateScanner from './SoulmateScanner';
 import KhodamCheck from './KhodamCheck';
 import SecretSignal from './SecretSignal'; 
@@ -15,7 +15,7 @@ import FutureGallery from './FutureGallery';
 import RateMyEffort from './RateMyEffort'; 
 import LockedMessage from './LockedMessage';
 import DoNotPress from './DoNotPress';
-import TimeCapsule from './TimeCapsule'; // <--- IMPORT INI JANGAN LUPA
+import TimeCapsule from './TimeCapsule';    // Pastikan kode TimeCapsule yang BARU sudah dipasang
 
 interface EndingProps {
   onReplay: () => void;
@@ -23,12 +23,13 @@ interface EndingProps {
 
 const Ending = ({ onReplay }: EndingProps) => {
 
-  // Confetti Init
+  // Efek Confetti (Kembang Api) saat halaman muncul
   useEffect(() => {
     const duration = 3 * 1000;
     const animationEnd = Date.now() + duration;
     const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
     const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+    
     const interval: any = setInterval(function() {
       const timeLeft = animationEnd - Date.now();
       if (timeLeft <= 0) return clearInterval(interval);
@@ -36,9 +37,11 @@ const Ending = ({ onReplay }: EndingProps) => {
       confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
       confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
     }, 250);
+    
     return () => clearInterval(interval);
   }, []);
 
+  // Efek Klik meledak
   const triggerFireworks = (e: any) => {
     let x = 0; let y = 0;
     if (e.touches) { 
@@ -58,14 +61,15 @@ const Ending = ({ onReplay }: EndingProps) => {
     });
   };
 
+  // Tombol Chat Akhir (WA)
   const handleWhatsApp = (e: any) => {
     e.stopPropagation();
-    const phoneNumber = "6288746041375"; // NO WA KAMU
+    const phoneNumber = "6288746041375"; // NOMOR WA KAMU
     const text = "Hai Azriel, webnya keren banget! Aku kasih bintang 5 deh ⭐⭐⭐⭐⭐";
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
-  // Divider Visual
+  // Komponen Divider (Pemisah Bagian)
   const SectionDivider = ({ title }: { title: string }) => (
     <div className="w-full flex items-center gap-4 my-8 opacity-40">
       <div className="h-px bg-white/30 flex-1"></div>
@@ -79,13 +83,14 @@ const Ending = ({ onReplay }: EndingProps) => {
       className="h-full w-full overflow-y-auto z-10 relative flex flex-col items-center pt-24 pb-20 no-scrollbar cursor-pointer bg-gradient-to-b from-transparent via-black/40 to-black/90"
       onClick={triggerFireworks} 
     >
+      {/* Tombol Jangan Ditekan (Prank Kecil) di pojok */}
       <div className="absolute top-4 right-4 z-50">
         <DoNotPress />
       </div>
 
       <div className="w-full max-w-md px-6 flex flex-col items-center gap-6 cursor-default" onClick={(e) => e.stopPropagation()}>
         
-        {/* HEADER */}
+        {/* === HEADER === */}
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -98,12 +103,12 @@ const Ending = ({ onReplay }: EndingProps) => {
           </h2>
         </motion.div>
 
-        {/* ZONA 1: KONTRAK */}
+        {/* === ZONA 1: SURAT PERJANJIAN (BARU) === */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full">
           <Contract />
         </motion.div>
 
-        {/* ZONA 2: FUN & MISSION */}
+        {/* === ZONA 2: FUN ZONE === */}
         <div className="w-full">
           <SectionDivider title="Fun Zone" />
           <div className="flex flex-col gap-6">
@@ -113,7 +118,7 @@ const Ending = ({ onReplay }: EndingProps) => {
           </div>
         </div>
 
-        {/* ZONA 3: REWARDS */}
+        {/* === ZONA 3: HADIAH (Rewards) === */}
         <div className="w-full">
           <SectionDivider title="Your Rewards" />
           <div className="flex flex-col gap-6 items-center">
@@ -123,22 +128,24 @@ const Ending = ({ onReplay }: EndingProps) => {
           </div>
         </div>
 
-        {/* ZONA 4: FUTURE & CLOSING */}
+        {/* === ZONA 4: MASA DEPAN & PESAN HATI === */}
         <div className="w-full">
           <SectionDivider title="Our Future" />
           <FutureGallery />
           
-          {/* FITUR BARU: TIME CAPSULE DIMASUKKAN DI SINI */}
+          {/* Fitur Pesan Hati ditaruh disini biar flow-nya enak */}
           <div className="mt-8">
             <TimeCapsule />
           </div>
         </div>
 
-        {/* FEEDBACK & ACTION */}
-        <div className="w-full space-y-2 mt-8">
+        {/* === FEEDBACK & CLOSING === */}
+        <div className="w-full space-y-4 mt-8">
           
+          {/* Rating Bintang */}
           <RateMyEffort />
 
+          {/* Tombol Chat Utama */}
           <button 
             onClick={handleWhatsApp}
             className="w-full bg-white text-black px-8 py-4 rounded-xl font-body font-bold flex items-center justify-center gap-3 hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,255,255,0.4)]"
@@ -147,6 +154,7 @@ const Ending = ({ onReplay }: EndingProps) => {
             <span>Chat Azriel Sekarang 💌</span>
           </button>
 
+          {/* Tombol Ulang */}
           <div className="flex justify-center mt-4">
             <button 
               onClick={onReplay} 
@@ -158,7 +166,7 @@ const Ending = ({ onReplay }: EndingProps) => {
           </div>
         </div>
 
-        {/* ZONA RAHASIA (SURAT TERAKHIR) */}
+        {/* === ZONA RAHASIA (Surat Terkunci di paling bawah) === */}
         <div className="mt-8 mb-20 w-full">
            <LockedMessage />
         </div>

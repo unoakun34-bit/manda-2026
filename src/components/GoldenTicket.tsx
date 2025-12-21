@@ -40,7 +40,7 @@ const GoldenTicket = () => {
           <div className="flex justify-between items-center mb-4">
             <div className="text-left">
               <p className="text-[10px] text-gray-400 uppercase">Passenger</p>
-              <p className="font-bold text-white text-lg">Manda & Kamu</p>
+              <p className="font-bold text-white text-lg">Manda & Azriel</p>
             </div>
             <Plane className="text-yellow-500 rotate-90" size={24} />
             <div className="text-right">

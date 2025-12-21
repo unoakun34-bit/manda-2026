@@ -15,7 +15,7 @@ const Story = ({ onFinished }: StoryProps) => {
     "Meskipun sekarang kita belum bisa liat kembang api bareng secara langsung...",
     "Tapi aku percaya, kita lagi natap langit yang sama.",
     "Makasih udah jadi bagian cerita aku di tahun ini.",
-    "Sekarang, coba tekan dan tahan bintang di layar ini..." // Pesan terakhir sebelum Wish
+    "Sekarang, coba jawab beberapa pertanyaan ini..." // Pesan terakhir sebelum Wish
   ];
 
   const [index, setIndex] = useState(0);
@@ -54,7 +54,7 @@ const Story = ({ onFinished }: StoryProps) => {
                   .start();
               }}
               options={{
-                delay: 50, // Kecepatan ngetik (makin kecil makin cepet)
+                delay: 40, // Kecepatan ngetik (makin kecil makin cepet)
                 cursor: '|', // Kursor kedip
               }}
             />

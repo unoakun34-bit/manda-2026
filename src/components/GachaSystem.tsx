@@ -3,15 +3,41 @@ import { motion } from 'framer-motion';
 import { Dices, Sparkles } from 'lucide-react';
 
 const GachaSystem = () => {
-  // --- BAGIAN INI YANG KAMU GANTI KATA-KATANYA ---
   const prizes = [
-    "Tahun ini bakal makin glowing ✨",
-    "Nilai aman, uang jajan nambah 🤑",
-    "Bakal sering ditraktir sama aku 🍜", // Modus tipis 1
-    "Doi makin peka tahun ini 🫣",
+    "Dapet Restu... dari keluarga ku 😉",
+    "ZONK! Gak dapet apa-apa, coba lagi tahun depan 🤪",
+    "Jodohmu inisialnya... A 🤫",
+    "Tutorial: Cara tidur sebelum jam 3 pagi (PENTING BUAT MANDA!) 😴",
     "Rezeki lancar, bisa checkout keranjang oren 📦",
+    "Hak Milik Hati Azriel (Non-transferable / Gak bisa dipindah) 🔒",
+    "Selamat! Kamu dapet piring cantik (Tapi bohong deng) 🍽️",
+    "Hati-hati, ada yang diem-diem naksir berat sama kamu 🤫",
+    "Nilai aman, uang jajan nambah 🤑",
+    "Dapet Obat 'Anti-Batu' (Diminum 3x sehari biar gak keras kepala) 💊",
+    "Mimpi indah malam ini (Syarat: Mimpinya harus ada aku) 💤",
+    "Selamat! Kamu dapet... Hikmahnya aja ya, yang sabar 🤣",
+    "Izin Resmi buat kangen aku tiap hari (Approved!) 📝",
+    "Kurangin gengsi, nanti cantiknya ilang lho 📉",
+    "Bakal sering ditraktir sama aku 🍜",
+    "Helm Anti-Gengsi (Biar kepalanya gak keras-keras amat) ⛑️",
+    "Dapet 'Good Morning' spesial besok pagi (Tungguin ya) ☀️",
+    "Peringatan: Kurang-kurangin bales chat lama ⏳",
     "Sehat terus & makin happy!",
-    "Jodohmu inisialnya... [Inisial Kamu] 🤫", // Modus tipis 2 (Ganti [Inisial Kamu])
+    "Diskon Gengsi 100% (Khusus dipake pas chat aku) 📉",
+    "Tahun ini bakal makin glowing ✨",
+    "Voucher 'Jalan Berdua' (Exp: Seumur Hidup, sama aku) 🎟️",
+    "Dapet Hikmahnya aja ya... yang sabar 🗿",
+    "Selamat! Kamu memenangkan hatiku (Hadiah tidak bisa ditukar) ❤️",
+    "Rezeki Ngalir Deras (Biar bisa traktir aku) 💸",
+    "Awas! Bakal kangen aku terus tahun ini 👻",
+    "Nilai Ujian Bagus (Aamiin paling kenceng dari aku!) 💯",
+    "Hadiah: Kaca... buat ngaca siapa yang paling gengsian? 🪞",
+    "Makin manis kalau lagi senyum ke aku, kurangin juteknya 🍬",
+    "Tahun ini dilarang galauin cowok fiksi/gepeng! Real life ada aku 🚫",
+    "Free Call 24 Jam (Khusus curhat ke aku doang) 📞",
+    "Dapet tiket nonton berdua... (Kapan-kapan ya) 🎬",
+    "Dapet 1000% stok sabar buat ngadepin keanehan kamu 😇",
+    "Doi makin peka tahun ini 🫣",
   ];
 
   const [result, setResult] = useState<string | null>(null);
