@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Lock, Camera } from 'lucide-react';
+import { Lock } from 'lucide-react';
 
 const FutureGallery = () => {
   // Daftar slot foto kosong

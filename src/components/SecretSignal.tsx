@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { VenetianMask, Shuffle, CheckCircle2 } from 'lucide-react';
+import { VenetianMask, Shuffle } from 'lucide-react';
 
 const SecretSignal = () => {
   const [signal, setSignal] = useState<string | null>(null);
