@@ -13,11 +13,11 @@ const QuizSystem = ({ onFinished }: QuizProps) => {
   const [status, setStatus] = useState<'neutral' | 'correct' | 'wrong'>('neutral');
   const [feedback, setFeedback] = useState<string>(""); 
   
-  // LOGIC BARU: Tracking Ngeyel Per Tombol
+  // LOGIC TRACKING NGEYEL (Per Tombol)
   const [wrongStreak, setWrongStreak] = useState(0); 
-  const [lastWrongIndex, setLastWrongIndex] = useState<number | null>(null); // Nyimpen index tombol terakhir
+  const [lastWrongIndex, setLastWrongIndex] = useState<number | null>(null);
 
-  // --- 15 PERTANYAAN ---
+  // --- 15 PERTANYAAN LENGKAP ---
   const questions = [
     // BAGIAN 1: INTRO & META
     {
@@ -171,21 +171,34 @@ const QuizSystem = ({ onFinished }: QuizProps) => {
     }
   ];
 
+  // --- FUNGSI EFEK SUARA ---
+  const playSound = (isCorrect: boolean) => {
+    // Pastikan file 'correct.mp3' dan 'wrong.mp3' ada di folder public
+    const audioName = isCorrect ? '/correct.mp3' : '/wrong.mp3';
+    const audio = new Audio(audioName);
+    audio.volume = 0.5; // Volume 50% biar gak kaget
+    audio.play().catch((err) => console.log("Gagal play audio:", err));
+  };
+
   const handleAnswer = (index: number) => {
-    // Kunci jika sudah benar
+    // Kunci jika sudah benar (biar gak bisa klik lagi)
     if (status === 'correct') return; 
 
     setClickedIndex(index);
     const correctIdx = questions[currentQ].correctIndex;
+    const isCorrect = index === correctIdx; // Cek jawaban
 
-    if (index === correctIdx) {
+    // Putar suara sesuai jawaban
+    playSound(isCorrect);
+
+    if (isCorrect) {
       // --- JIKA BENAR ---
       setStatus('correct');
       setFeedback(questions[currentQ].options[index].msg); 
       setWrongStreak(0); // Reset streak kalau bener
       setLastWrongIndex(null); // Reset tombol terakhir
       
-      // JEDA 3 DETIK
+      // JEDA 3 DETIK PINDAH SOAL
       setTimeout(() => {
         if (currentQ < questions.length - 1) {
           setCurrentQ(curr => curr + 1);
@@ -193,7 +206,7 @@ const QuizSystem = ({ onFinished }: QuizProps) => {
           setClickedIndex(null);
           setFeedback(""); 
         } else {
-          onFinished(); 
+          onFinished(); // Kuis Selesai
         }
       }, 3000); 
 
@@ -222,7 +235,7 @@ const QuizSystem = ({ onFinished }: QuizProps) => {
         setFeedback(questions[currentQ].options[index].msg);
       }
       
-      // Reset visual tombol
+      // Reset visual tombol biar bisa klik lagi
       setTimeout(() => {
         setStatus('neutral');
         setClickedIndex(null);
