@@ -16,6 +16,7 @@ import QuizSystem from './components/QuizSystem';
 import Wish from './components/Wish';
 import Ending from './components/Ending';
 
+// Tipe state untuk perpindahan halaman
 type SceneState = 'INTRO' | 'OPENING' | 'STORY' | 'QUIZ' | 'WISH' | 'ENDING';
 
 function App() {
@@ -26,13 +27,17 @@ function App() {
   // --- FEATURE: DYNAMIC TITLE ---
   useEffect(() => {
     const handleVisibilityChange = () => {
-      document.title = document.hidden ? "Jangan rindu ya... 😜" : "2026: Manda ✨";
+      if (document.hidden) {
+        document.title = "Jangan rindu ya... 😜";
+      } else {
+        document.title = "2026: Manda ✨";
+      }
     };
     document.addEventListener("visibilitychange", handleVisibilityChange);
     return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
-  // --- FEATURE: ANTI CEPU ---
+  // --- FEATURE: ANTI CEPU (Klik Kanan Disable) ---
   useEffect(() => {
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault(); 
@@ -42,14 +47,17 @@ function App() {
     return () => document.removeEventListener("contextmenu", handleContextMenu);
   }, []);
 
-  // Loading Delay
+  // Timer Loading Screen
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2500); 
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500); 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <main className="relative w-full h-screen overflow-hidden text-white selection:bg-pink-500 selection:text-white select-none">
+      
       {/* Background Layers */}
       <AuroraBackground />       
       <ShootingStars />          
@@ -57,6 +65,7 @@ function App() {
       <AudioPlayer isPlaying={isMusicPlaying} />
 
       <AnimatePresence mode='wait'>
+        
         {isLoading ? (
           <LoadingScreen key="loading" />
         ) : (
@@ -68,12 +77,12 @@ function App() {
             exit={{ opacity: 0, filter: 'blur(10px)' }}
             transition={{ duration: 1 }}
           >
-            {/* 0. INTRO */}
+            {/* 0. INTRO (Teks Ketikan Awal) */}
             {scene === 'INTRO' && (
               <TypingIntro onComplete={() => setScene('OPENING')} />
             )}
 
-            {/* 1. OPENING */}
+            {/* 1. OPENING (Judul Besar) */}
             {scene === 'OPENING' && (
               <Opening onComplete={() => {
                 setIsMusicPlaying(true);
@@ -96,15 +105,16 @@ function App() {
               <Wish onExplode={() => setScene('ENDING')} />
             )}
 
-            {/* 5. ENDING */}
+            {/* 5. ENDING (Halaman Akhir) */}
             {scene === 'ENDING' && (
               <Ending onReplay={() => setScene('STORY')} />
             )}
           </motion.div>
         )}
+
       </AnimatePresence>
 
-      {/* Noise Overlay - Pastikan Terbuka & Tertutup dengan Benar */}
+      {/* Noise Overlay - Efek Bintik Film */}
       <div 
         className="fixed inset-0 pointer-events-none opacity-[0.05] z-[100] mix-blend-overlay"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} 
