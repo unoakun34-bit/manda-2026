@@ -3,18 +3,19 @@ import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Send, RotateCcw } from 'lucide-react';
 
-// IMPORT SEMUA FITUR (LENGKAP BANGET)
+// IMPORT SEMUA FITUR
 import Contract from './Contract';
 import SoulmateScanner from './SoulmateScanner';
 import KhodamCheck from './KhodamCheck';
-import SecretSignal from './SecretSignal'; // BARU
+import SecretSignal from './SecretSignal'; 
 import GachaSystem from './GachaSystem';
 import GoldenTicket from './GoldenTicket';
-import GiftBox from './GiftBox'; // YANG ADA KUPONNYA
+import GiftBox from './GiftBox'; 
 import FutureGallery from './FutureGallery';
-import RateMyEffort from './RateMyEffort'; // BARU
+import RateMyEffort from './RateMyEffort'; 
 import LockedMessage from './LockedMessage';
 import DoNotPress from './DoNotPress';
+import TimeCapsule from './TimeCapsule'; // <--- IMPORT INI JANGAN LUPA
 
 interface EndingProps {
   onReplay: () => void;
@@ -59,7 +60,7 @@ const Ending = ({ onReplay }: EndingProps) => {
 
   const handleWhatsApp = (e: any) => {
     e.stopPropagation();
-    const phoneNumber = "6288746041375"; // GANTI NO WA
+    const phoneNumber = "6288746041375"; // NO WA KAMU
     const text = "Hai Azriel, webnya keren banget! Aku kasih bintang 5 deh ⭐⭐⭐⭐⭐";
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
   };
@@ -108,12 +109,11 @@ const Ending = ({ onReplay }: EndingProps) => {
           <div className="flex flex-col gap-6">
              <SoulmateScanner />
              <KhodamCheck />
-             {/* FITUR BARU: KODE RAHASIA */}
              <SecretSignal />
           </div>
         </div>
 
-        {/* ZONA 3: REWARDS (Kupon, Gacha, Tiket) */}
+        {/* ZONA 3: REWARDS */}
         <div className="w-full">
           <SectionDivider title="Your Rewards" />
           <div className="flex flex-col gap-6 items-center">
@@ -127,12 +127,16 @@ const Ending = ({ onReplay }: EndingProps) => {
         <div className="w-full">
           <SectionDivider title="Our Future" />
           <FutureGallery />
+          
+          {/* FITUR BARU: TIME CAPSULE DIMASUKKAN DI SINI */}
+          <div className="mt-8">
+            <TimeCapsule />
+          </div>
         </div>
 
         {/* FEEDBACK & ACTION */}
-        <div className="w-full space-y-2 mt-4">
+        <div className="w-full space-y-2 mt-8">
           
-          {/* FITUR BARU: RATING */}
           <RateMyEffort />
 
           <button 
@@ -154,7 +158,7 @@ const Ending = ({ onReplay }: EndingProps) => {
           </div>
         </div>
 
-        {/* ZONA RAHASIA (SURAT) */}
+        {/* ZONA RAHASIA (SURAT TERAKHIR) */}
         <div className="mt-8 mb-20 w-full">
            <LockedMessage />
         </div>
