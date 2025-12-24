@@ -35,7 +35,7 @@ const GiftBox = () => {
     {
       id: 4,
       title: "Traktiran Jajan Eskrim 🍦",
-      desc: "Tukarkan ini di sekolah/luar. Azriel beliin jajan apa aja (maksimal seharga ginjal... canda). Yuk gass!",
+      desc: "Tukarkan ini di sekolah/luar. Azriel beliin jajan apa aja (Menu bebas pilih, asal jangan minta beli pabriknya aja). Yuk gass!",
       icon: <Ticket size={32} className="text-white" />,
       bg: "bg-gradient-to-br from-pink-400 to-rose-500",
       waMsg: "Nagih janji! Kapan nih traktiran jajan eskrim-nya? 🍦"
@@ -62,7 +62,7 @@ const GiftBox = () => {
       desc: "Bebas Video Call kapan aja tanpa janjian. Azriel wajib angkat (kecuali lagi di WC atau ....).",
       icon: <Video size={32} className="text-white" />,
       bg: "bg-gradient-to-br from-indigo-500 to-blue-500",
-      waMsg: "Mau pake Tiket VC Dadakan! Angkat sekarang atau aku ngambek! 📹"
+      waMsg: "Mau pake Tiket VC Dadakan! Angkat bentar, penting (bohong deng, kangen doang)."
     },
     {
       id: 8,

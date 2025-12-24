@@ -5,9 +5,9 @@ import { Lock } from 'lucide-react';
 const FutureGallery = () => {
   // Daftar slot foto kosong
   const slots = [
-    { title: "First Date 🍿", rotate: -3 },
-    { title: "Wisuda Bareng 🎓", rotate: 2 },
-    { title: "Random Trip 🛵", rotate: -1 },
+    { title: "Photobox Date 📸", rotate: -3 },
+    { title: "Nonton Konser/Pensi 🎸", rotate: 2 },
+    { title: "Sunset Catching 🌅", rotate: -1 },
   ];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);

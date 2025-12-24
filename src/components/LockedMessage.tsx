@@ -84,7 +84,7 @@ const LockedMessage = () => { // <--- Nama sudah disesuaikan jadi LockedMessage
               </p>
 
               <p>
-                Kita ini lucu ya. <strong className="text-white">Sedekat nadi di virtual, tapi sejauh matahari di dunia nyata.</strong>
+                Kita ini lucu ya. <strong className="text-white">Di chat akrab banget, tapi pas ketemu di sekolah malah kayak orang musuhan.</strong>
               </p>
 
               <p>
@@ -120,7 +120,7 @@ const LockedMessage = () => { // <--- Nama sudah disesuaikan jadi LockedMessage
               </p>
 
               <p>
-                Jadi, biarlah aku jadi pengagum rahasiamu di 'bayang-bayang' dulu ya?
+                Jadi, untuk sekarang, biarin aku jadi 'Fans VIP' jalur belakang layar dulu ya?
               </p>
 
               <p>
@@ -130,21 +130,18 @@ const LockedMessage = () => { // <--- Nama sudah disesuaikan jadi LockedMessage
               {/* FOOTER / SIGNATURE */}
               <div className="mt-12 pt-6 border-t border-white/10 text-center space-y-4">
                 <p className="font-serif text-2xl tracking-[0.2em] text-white">
-                  HAPPY ANNIVERSARY
+                  HAPPY NEW YEAR
                 </p>
                 
                 <div className="space-y-1">
                   <p className="text-sm italic text-pink-200/60 font-serif">
-                    "Keep shining like the sun, and I will be the shadow that never leaves."
-                  </p>
-                  <p className="text-[10px] text-white/30 uppercase tracking-widest">
-                    (Tetaplah bersinar seperti matahari, dan aku akan menjadi bayangan yang tidak pernah pergi)
+                    Just be yourself, Manda. Aku bakal tetep support kamu dari sini, entah sebagai temen chat atau... ya liat nanti aja.
                   </p>
                 </div>
               </div>
 
               <p className="text-right mt-8 font-serif italic text-xl text-white/60">
-                — Azriel.
+                ~ Azriel.
               </p>
             </div>
           </motion.div>
