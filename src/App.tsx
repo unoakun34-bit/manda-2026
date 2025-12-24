@@ -2,26 +2,24 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 // --- IMPORT BACKGROUND & AUDIO ---
-import ParticlesBackground from './components/ParticlesBackground';
+import ParticlesBackground from './components/ParticlesBackground'; // Dinyalakan lagi
 import AuroraBackground from './components/AuroraBackground';
 import ShootingStars from './components/ShootingStars';
 import AudioPlayer from './components/AudioPlayer';
 import { LoadingScreen } from './components/CustomUI';
 
 // --- IMPORT SCENES ---
-import Opening from './components/Opening'; // Ini Halaman "2026 UNTUK MANDA"
+import Opening from './components/Opening'; 
 import Story from './components/Story';
 import QuizSystem from './components/QuizSystem'; 
 import Wish from './components/Wish';
 import Ending from './components/Ending';
 
-// Scene 'INTRO' dihapus sepenuhnya dari alur
 type SceneState = 'OPENING' | 'STORY' | 'QUIZ' | 'WISH' | 'ENDING';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [scene, setScene] = useState<SceneState>('OPENING');
-  // const [scene, setScene] = useState<SceneState>('ENDING');
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   // --- FEATURE: DYNAMIC TITLE ---
@@ -43,19 +41,21 @@ function App() {
     return () => document.removeEventListener("contextmenu", handleContextMenu);
   }, []);
 
-  // Timer Loading Screen (2.5 detik saja)
+  // Timer Loading Screen
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2500); 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <main className="relative w-full h-screen overflow-hidden text-white selection:bg-pink-500 selection:text-white select-none">
+    // REVISI DISINI: Hapus 'bg-black' dan ganti jadi 'bg-transparent' agar Aurora terlihat
+    <main className="relative w-full h-screen overflow-hidden text-white selection:bg-pink-500 selection:text-white select-none bg-transparent">
       
-      {/* Background Layers Tetap Aktif */}
+      {/* Background Layers */}
       <AuroraBackground />       
       <ShootingStars />          
-      <ParticlesBackground />    
+      <ParticlesBackground /> {/* Partikel dikembalikan biar makin cantik */}
+      
       <AudioPlayer isPlaying={isMusicPlaying} />
 
       <AnimatePresence mode='wait'>
@@ -71,15 +71,13 @@ function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* 1. HALAMAN AWAL: Langsung Muncul Statis Seperti Screenshot (145) */}
             {scene === 'OPENING' && (
               <Opening onComplete={() => {
                 setIsMusicPlaying(true); 
-                setScene('STORY'); // Klik tombol langsung masuk ke cerita utama
+                setScene('STORY'); 
               }} />
             )}
 
-            {/* Alur selanjutnya tanpa Intro Terminal */}
             {scene === 'STORY' && <Story onFinished={() => setScene('QUIZ')} />}
             {scene === 'QUIZ' && <QuizSystem onFinished={() => setScene('WISH')} />}
             {scene === 'WISH' && <Wish onExplode={() => setScene('ENDING')} />}
