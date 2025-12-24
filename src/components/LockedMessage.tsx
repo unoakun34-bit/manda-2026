@@ -7,7 +7,7 @@ const LockedMessage = () => { // <--- Nama sudah disesuaikan jadi LockedMessage
   const [error, setError] = useState('');
 
   const handleUnlock = () => {
-    if (password.toLowerCase() === 'amy') {
+    if (password.toLowerCase() === 'cantikk') {
       setIsUnlocked(true);
       setError('');
     } else {
@@ -32,7 +32,7 @@ const LockedMessage = () => { // <--- Nama sudah disesuaikan jadi LockedMessage
               animate={password.length > 0 ? { rotate: [0, -10, 10, 0] } : {}}
               className="mb-6 text-6xl"
             >
-              {password.toLowerCase() === 'amy' ? '🔓' : '🔒'}
+              {password.toLowerCase() === 'cantikk' ? '🔓' : '🔒'}
             </motion.div>
 
             <h3 className="mb-6 font-serif text-2xl tracking-widest text-white">LOCKED MESSAGE</h3>
