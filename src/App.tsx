@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-// --- IMPORT BACKGROUND & AUDIO ---
-import ParticlesBackground from './components/ParticlesBackground'; // Dinyalakan lagi
+// --- IMPORT COMPONENTS ---
+import ParticlesBackground from './components/ParticlesBackground';
 import AuroraBackground from './components/AuroraBackground';
 import ShootingStars from './components/ShootingStars';
 import AudioPlayer from './components/AudioPlayer';
 import { LoadingScreen } from './components/CustomUI';
+import CustomToast from './components/CustomToast'; // <--- IMPORT INI
 
 // --- IMPORT SCENES ---
 import Opening from './components/Opening'; 
@@ -21,6 +22,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [scene, setScene] = useState<SceneState>('OPENING');
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  
+  // STATE UNTUK NOTIFIKASI BARU
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // --- FEATURE: DYNAMIC TITLE ---
   useEffect(() => {
@@ -31,11 +35,12 @@ function App() {
     return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
-  // --- FEATURE: ANTI CEPU ---
+  // --- FEATURE: ANTI CEPU (REVISI) ---
   useEffect(() => {
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault(); 
-      alert("Eits, rahasia negara! Gak boleh diintip 🤫");
+      // GANTI ALERT BAWAAN DENGAN CUSTOM TOAST
+      setToastMessage("Eits! Dilarang intip codingan 😜");
     };
     document.addEventListener("contextmenu", handleContextMenu);
     return () => document.removeEventListener("contextmenu", handleContextMenu);
@@ -43,20 +48,25 @@ function App() {
 
   // Timer Loading Screen
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2500); 
+    const timer = setTimeout(() => setIsLoading(false), 3500); 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    // REVISI DISINI: Hapus 'bg-black' dan ganti jadi 'bg-transparent' agar Aurora terlihat
     <main className="relative w-full h-screen overflow-hidden text-white selection:bg-pink-500 selection:text-white select-none bg-transparent">
       
       {/* Background Layers */}
       <AuroraBackground />       
       <ShootingStars />          
-      <ParticlesBackground /> {/* Partikel dikembalikan biar makin cantik */}
+      <ParticlesBackground />
       
       <AudioPlayer isPlaying={isMusicPlaying} />
+
+      {/* --- KOMPONEN NOTIFIKASI (Ditaruh paling atas biar z-index tinggi) --- */}
+      <CustomToast 
+        message={toastMessage} 
+        onClose={() => setToastMessage(null)} 
+      />
 
       <AnimatePresence mode='wait'>
         

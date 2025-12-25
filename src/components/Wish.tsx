@@ -32,13 +32,13 @@ const Wish = ({ onExplode }: WishProps) => {
     setIsHolding(true);
     if (intervalRef.current) clearInterval(intervalRef.current);
 
-    // Interval pengisi air (Sekitar 2-3 detik sampai penuh)
+    // Interval pengisi air
     intervalRef.current = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) return 100; 
         return prev + 1.2; // Kecepatan air naik
       });
-    }, 20); // Update setiap 20ms biar smooth kayak air
+    }, 20); 
   };
 
   const endHold = () => {
@@ -47,18 +47,17 @@ const Wish = ({ onExplode }: WishProps) => {
     setIsHolding(false);
     if (intervalRef.current) clearInterval(intervalRef.current);
     
-    // Kalau dilepas, air surut lagi (Efek gravitasi)
+    // Kalau dilepas, air surut lagi
     const drainInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev <= 0) {
           clearInterval(drainInterval);
           return 0;
         }
-        return prev - 2; // Surut lebih cepat dari ngisi
+        return prev - 2; 
       });
     }, 10);
     
-    // Simpan ref biar bisa dicancel kalau ditekan lagi
     intervalRef.current = drainInterval;
   };
 
@@ -78,46 +77,52 @@ const Wish = ({ onExplode }: WishProps) => {
         </p>
       </motion.div>
 
-      {/* KONTAINER BINTANG (TIDAK ADA SHADOW) */}
+      {/* KONTAINER BINTANG (FIX BUG DISINI) */}
       <div 
         className="relative cursor-pointer group touch-none"
+        // Event Handlers Mouse & Touch
         onMouseDown={startHold}
         onMouseUp={endHold}
         onMouseLeave={endHold}
-        onTouchStart={(e) => { e.preventDefault(); startHold(); }}
+        onTouchStart={(e) => { 
+           // preventDefault di sini penting buat cegah scroll/zoom pas tahan
+           e.preventDefault(); 
+           startHold(); 
+        }}
         onTouchEnd={endHold}
+        
+        // --- TAMBAHAN PENTING: MATIKAN KLIK KANAN KHUSUS AREA INI ---
+        onContextMenu={(e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Stop lapor ke App.tsx ("Jangan cepu ke polisi")
+        }}
       >
         <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center">
           
-          {/* LAYER 1: BINTANG KOSONG (WADAH) 
-              Warna abu-abu gelap biar kontras sama isinya */}
+          {/* LAYER 1: BINTANG KOSONG (WADAH) */}
           <Star 
             className="w-full h-full text-gray-800" 
-            strokeWidth={1.5} // Garis tipis elegan
+            strokeWidth={1.5} 
           />
 
-          {/* LAYER 2: AIR EMAS (MENGISI) 
-              Kita pakai teknik 'clipPath' buat motong bintangnya */}
+          {/* LAYER 2: AIR EMAS (MENGISI) */}
           <div 
             className="absolute top-0 left-0 w-full h-full transition-all ease-linear"
             style={{ 
-              // INI KUNCINYA: Memotong dari atas ke bawah.
-              // duration-100 di class bikin naik turunnya smooth kayak cairan
               clipPath: `inset(${100 - progress}% 0 0 0)`,
-              transitionDuration: '50ms' // Responsif tapi smooth
+              transitionDuration: '50ms' 
             }}
           >
-            {/* Bintang Full Kuning (Tanpa Shadow) */}
             <Star 
               className="w-full h-full text-yellow-400 fill-yellow-400" 
-              strokeWidth={0} // Tanpa garis pinggir, full warna
+              strokeWidth={0} 
             />
           </div>
 
         </div>
       </div>
 
-      {/* Progress Angka (Opsional: Kalau mau polos hapus aja div ini) */}
+      {/* Progress Angka */}
       <div className="mt-10 font-mono text-yellow-500 text-sm h-6 font-bold tracking-widest">
         {progress > 0 && progress < 100 && `${Math.round(progress)}%`}
       </div>

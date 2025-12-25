@@ -1,57 +1,47 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-// --- 1. LOADING SCREEN (Cinematic Breathing Text) ---
 export const LoadingScreen = () => {
   return (
-    <motion.div 
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black"
-    >
-      {/* Ikon Bintang Berdenyut */}
-      <motion.div
-        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="mb-4"
-      >
-        <Sparkles className="w-12 h-12 text-manda-gold" />
-      </motion.div>
+    <div className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center overflow-hidden">
       
-      {/* Teks Loading Puitis */}
-      <p className="font-serif text-sm tracking-[0.3em] text-gray-400 animate-pulse">
-        MENYIAPKAN SEMESTA...
-      </p>
-    </motion.div>
-  );
-};
+      {/* Background Noise Halus (Biar gak polos banget, tapi ringan) */}
+      <div className="absolute inset-0 opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+      
+      {/* --- ANIMASI UTAMA: SIMPLE GOLDEN RING --- */}
+      <div className="relative flex items-center justify-center mb-8">
+        
+        {/* Cincin Putar (Loading) */}
+        <motion.div 
+          animate={{ rotate: 360 }}
+          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+          className="w-16 h-16 rounded-full border-[3px] border-white/10 border-t-yellow-500"
+        />
+        
+        {/* Titik Cahaya Tengah (Diam) */}
+        <div className="absolute w-2 h-2 bg-yellow-500 rounded-full shadow-[0_0_15px_rgba(234,179,8,0.8)] animate-pulse"></div>
 
-// --- 2. CUSTOM TOAST (Notifikasi Kaca) ---
-// Props: message (pesan), onClose (fungsi tutup)
-interface ToastProps {
-  message: string | null;
-  onClose: () => void;
-}
+      </div>
 
-export const CustomToast = ({ message, onClose }: ToastProps) => {
-  return (
-    <AnimatePresence>
-      {message && (
-        <motion.div
-          initial={{ opacity: 0, y: -50 }} // Muncul dari atas
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="fixed top-8 left-0 right-0 z-[60] flex justify-center px-4"
+      {/* --- TEKS STABIL (GAK KELIP-KELIP) --- */}
+      <div className="relative z-10 flex flex-col items-center gap-2">
+        <h2 
+          className="text-yellow-100 font-serif text-lg tracking-[0.2em] uppercase"
+          style={{ fontFamily: "'Cormorant Garamond', serif" }}
         >
-          <div className="glass px-6 py-3 rounded-full flex items-center gap-3 cursor-pointer" onClick={onClose}>
-            <span className="text-sm font-sans font-medium tracking-wide text-white">
-              {message}
-            </span>
-            {/* Tombol X kecil */}
-            <span className="text-xs text-gray-400 hover:text-white">✕</span>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          Menyiapkan Semesta
+        </h2>
+        
+        {/* Progress Line Kecil */}
+        <div className="w-24 h-[1px] bg-gray-800 rounded-full overflow-hidden mt-2">
+           <motion.div 
+             initial={{ width: "0%" }}
+             animate={{ width: "100%" }}
+             transition={{ duration: 3, ease: "easeInOut" }}
+             className="h-full bg-yellow-500"
+           />
+        </div>
+      </div>
+
+    </div>
   );
 };
