@@ -6,7 +6,7 @@ interface QuizProps {
   onFinished: () => void;
 }
 
-// --- DATA PERTANYAAN (Ditaruh di luar biar stabil & gak re-render) ---
+// --- DATA PERTANYAAN ---
 const QUESTIONS_DATA = [
   // BAGIAN 1: INTRO & META
   {
@@ -15,7 +15,7 @@ const QUESTIONS_DATA = [
       { text: "2025", msg: "Yah, gagal move on nih? 🤪" },
       { text: "2026", msg: "Cakep! Fokusnya bagus. Lanjut..." }, // BENAR
       { text: "2077", msg: "Kejauhan woi, kita udah tua nanti 👴👵" },
-      { text: "2045", msg: "Siap menyongsong Indonesia Emas? 🇮🇩" } // OPSI BARU
+      { text: "2045", msg: "Siap menyongsong Indonesia Emas? 🇮🇩" }
     ],
     correctIndex: 1
   },
@@ -25,7 +25,7 @@ const QUESTIONS_DATA = [
       { text: "Apaan sih, Alay", msg: "Parah! Udah begadang bikinnya woi 😭" },
       { text: "Biasa aja", msg: "Masa? Coba liat cermin, pasti senyum-senyum 😏" },
       { text: "Kaget & Senyum dikit", msg: "Nah gitu dong jujur. Manis tau kalo senyum 😉" }, // BENAR
-      { text: "Bingung", msg: "Bingung kenapa ada cowok se-effort ini ya? 🤭" } // OPSI BARU
+      { text: "Bingung", msg: "Bingung kenapa ada cowok se-effort ini ya? 🤭" }
     ],
     correctIndex: 2
   },
@@ -37,7 +37,7 @@ const QUESTIONS_DATA = [
       { text: "Aku emang males liat kamu", msg: "Jahat banget... padahal aku ganteng lho 🥺" },
       { text: "Dalem hati pengen nyapa tapi gengsi", msg: "Sama dong... tahan ya, ada waktunya 🤫" }, // BENAR
       { text: "Biasa aja tuh", msg: "Masa? Mata gak bisa bohong lho... 👀" },
-      { text: "Nunggu disapa duluan", msg: "Huu dasar gengsian, sama aja kita! 🗿" } // OPSI BARU
+      { text: "Nunggu disapa duluan", msg: "Huu dasar gengsian, sama aja kita! 🗿" }
     ],
     correctIndex: 1
   },
@@ -47,7 +47,7 @@ const QUESTIONS_DATA = [
       { text: "Liatin lantai", msg: "Lantai lebih menarik dari aku? Sedih... 🥀" },
       { text: "Lirik-lirik dikit", msg: "Ketauan deh! Aku juga liat kamu kok 😎" }, // BENAR
       { text: "Liatin tembok", msg: "Awas nabrak temboknya lho mikirin aku 😆" },
-      { text: "Pura-pura main HP", msg: "Klise banget triknya, tapi ampuh sih 😂" } // OPSI BARU
+      { text: "Pura-pura main HP", msg: "Klise banget triknya, tapi ampuh sih 😂" }
     ],
     correctIndex: 1
   },
@@ -59,7 +59,7 @@ const QUESTIONS_DATA = [
       { text: "Gaya jalan / Penampilan", msg: "Ciye merhatiin detail banget nih... 🫣" }, // BENAR
       { text: "Gak ada", msg: "Tombol ini rusak. Kamu pasti bohong 😝" },
       { text: "Aib aku", msg: "Dih, yang bagus-bagus napa diingetnya! 😤" },
-      { text: "Senyum aku (Eaa)", msg: "Waduh, bisa diabetes nanti kalau sering liat 🍯" } // OPSI BARU
+      { text: "Senyum aku (Eaa)", msg: "Waduh, bisa diabetes nanti kalau sering liat 🍯" }
     ],
     correctIndex: 0
   },
@@ -69,7 +69,7 @@ const QUESTIONS_DATA = [
       { text: "Nyebelin banget", msg: "Nyebelin tapi ngangenin kan? Ngaku! 😜" },
       { text: "Seru & Asik", msg: "Valid! Makanya jangan jutek-jutek dong 😉" }, // BENAR
       { text: "Pendiem", msg: "Salah server bu... aku aslinya rame tau!" },
-      { text: "Misterius kayak Intel", msg: "Siap 86! Memantau hatimu... 🕵️‍♂️" } // OPSI BARU
+      { text: "Misterius kayak Intel", msg: "Siap 86! Memantau hatimu... 🕵️‍♂️" }
     ],
     correctIndex: 1
   },
@@ -81,7 +81,7 @@ const QUESTIONS_DATA = [
       { text: "Jam 7:01 (Gercep)", msg: "Halah, jangan mimpi! Realistis aja deh 🤣" },
       { text: "Jam 9:00 (Lama)", msg: "Nah sadar diri! Keburu lumutan tau nungguinnya 🗿" }, // BENAR
       { text: "Tahun depan", msg: "Kejam banget! Keburu jadi fosil aku..." },
-      { text: "Tergantung Mood", msg: "Dih, mood-mood an kayak cuaca aja 🌦️" } // OPSI BARU
+      { text: "Tergantung Mood", msg: "Dih, mood-mood an kayak cuaca aja 🌦️" }
     ],
     correctIndex: 1
   },
@@ -91,7 +91,7 @@ const QUESTIONS_DATA = [
       { text: "Lupa caranya ngetik", msg: "Alasan klasik. Gak mempan! 😋" },
       { text: "Takut aku baper", msg: "Dih PD banget! Tapi iya sih dikit... 🫣" },
       { text: "Karena Harga Diri & Ego setinggi langit 👑", msg: "Turunin dikit napa Bu Egonya... sekali-kali nyenengin orang 🥺" }, // BENAR
-      { text: "Gak biasa aja", msg: "Bisa dibiasain kok mulai sekarang... 😏" } // OPSI BARU
+      { text: "Gak biasa aja", msg: "Bisa dibiasain kok mulai sekarang... 😏" }
     ],
     correctIndex: 2
   },
@@ -103,7 +103,7 @@ const QUESTIONS_DATA = [
       { text: "Bodo amat", msg: "Yakin? Awas nanti nyesel lho... 😌" },
       { text: "Panas / Badmood dikit", msg: "Ciye cemburu... tenang, aku setia kok 🔒" }, // BENAR
       { text: "Ikut seneng", msg: "Dih, kok malah didukung? Jahat! 😤" },
-      { text: "Labrak ceweknya", msg: "Waduh, Mode Maung-nya keluar... 🦁" } // OPSI BARU
+      { text: "Labrak ceweknya", msg: "Waduh, Mode Maung-nya keluar... 🦁" }
     ],
     correctIndex: 1
   },
@@ -113,7 +113,7 @@ const QUESTIONS_DATA = [
       { text: "Aku (Manda)", msg: "Masa? Perasaan kamu batu banget deh 🗿" },
       { text: "Azriel (Yang bikin web)", msg: "Bener banget. Sabar banget kan aku ngadepin kamu? 😇" }, // BENAR
       { text: "Gak ada", msg: "Perang dunia dong kalau gitu..." },
-      { text: "Suit Jepang", msg: "Kalo kalah tetep aja aku yang salah kan? 😂" } // OPSI BARU
+      { text: "Suit Jepang", msg: "Kalo kalah tetep aja aku yang salah kan? 😂" }
     ],
     correctIndex: 1
   },
@@ -123,7 +123,7 @@ const QUESTIONS_DATA = [
       { text: "Didiemin aja", msg: "Yakin? Nanti malah makin ngamuk lho..." },
       { text: "Dibujuk / Dihibur", msg: "Dasar manja... tapi oke siap laksanakan! 🫡" }, // BENAR
       { text: "Diajak berantem", msg: "Waduh, nyari mati itu mah 🏳️" },
-      { text: "Dibelikan Makanan", msg: "Solusi terbaik! Perut kenyang hati senang 🍔" } // OPSI BARU
+      { text: "Dibelikan Makanan", msg: "Solusi terbaik! Perut kenyang hati senang 🍔" }
     ],
     correctIndex: 1
   },
@@ -135,7 +135,7 @@ const QUESTIONS_DATA = [
       { text: "KUA langsung", msg: "Waduh... sekolah dulu yang bener ya dek 😂" },
       { text: "Nonton / Timezone", msg: "Gas! Nanti aku yang atur jadwalnya 📅" }, // BENAR
       { text: "Diem di kelas aja", msg: "Bosen kali ah... masa di sekolah mulu 😴" },
-      { text: "Makan Seblak/Mie Ayam", msg: "Anak kuliner banget nih? Boleh lah gas 🍜" } // OPSI BARU
+      { text: "Makan Seblak/Mie Ayam", msg: "Anak kuliner banget nih? Boleh lah gas 🍜" }
     ],
     correctIndex: 1
   },
@@ -145,7 +145,7 @@ const QUESTIONS_DATA = [
       { text: "Auto Reject", msg: "Jahat banget... awas ya nanti kangen 🥺" },
       { text: "Diangkat dong", msg: "Awas ya kalau bohong, ntar malem aku tes! 📞" }, // BENAR
       { text: "Hape di-silent", msg: "Alasan mulu. Bilang aja grogi kan?" },
-      { text: "Angkat tapi diem doang", msg: "Lomba diem-dieman? Boleh siapa takut 😶" } // OPSI BARU
+      { text: "Angkat tapi diem doang", msg: "Lomba diem-dieman? Boleh siapa takut 😶" }
     ],
     correctIndex: 1
   },
@@ -157,7 +157,7 @@ const QUESTIONS_DATA = [
       { text: "5 Menit jadi", msg: "Enak aja! Emang mie instan? 🍜" },
       { text: "Semaleman suntuk", msg: "Bener banget... hargai dong effort-nya 🥺❤️" }, // BENAR
       { text: "Nyuruh orang", msg: "Sembarangan! Ini murni ketikan tangan sendiri tau!" },
-      { text: "Seminggu full senyum", msg: "Lebih dari itu, seumur hidup ku dedikasikan... (lebay) 🤣" } // OPSI BARU
+      { text: "Seminggu full senyum", msg: "Lebih dari itu, seumur hidup ku dedikasikan... (lebay) 🤣" }
     ],
     correctIndex: 1
   },
@@ -169,7 +169,7 @@ const QUESTIONS_DATA = [
       { text: "Makin deket (Real Life)", msg: "Amin paling kenceng! Bismillah ya... ✨" }, // BENAR
       { text: "Tetep jadi 'Temen Online'", msg: "Masa mau virtual terus? Gak kangen liat aslinya? 😤" },
       { text: "Jadi musuh bebuyutan", msg: "Dih, emang berani musuhan sama aku? 🤨" },
-      { text: "Partner Kondangan", msg: "Waduh, jauh amat visinya... tapi boleh juga sih 👔👗" } // OPSI BARU
+      { text: "Partner Kondangan", msg: "Waduh, jauh amat visinya... tapi boleh juga sih 👔👗" }
     ],
     correctIndex: 0
   }
@@ -195,7 +195,7 @@ const QuizSystem = ({ onFinished }: QuizProps) => {
   };
 
   const handleAnswer = (selectedIndex: number) => {
-    // FIX BUG: Kunci jawaban kalau status sedang tidak netral (sedang proses animasi/feedback)
+    // FIX BUG: Kunci jawaban kalau status sedang tidak netral
     if (status !== 'neutral') return; 
 
     setClickedIndex(selectedIndex);
@@ -310,7 +310,7 @@ const QuizSystem = ({ onFinished }: QuizProps) => {
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           {QUESTIONS_DATA[currentQ].options.map((opt, idx) => {
             const isClicked = clickedIndex === idx;
-            const isCorrect = idx === QUESTIONS_DATA[currentQ].correctIndex;
+            // PERBAIKAN: Hapus variabel isCorrect yang tidak dipakai di sini biar gak error TS
             
             // Style Default
             let buttonStyle = "bg-white/5 border-white/10 hover:bg-white/10 hover:border-yellow-500/50 hover:shadow-[0_0_15px_rgba(234,179,8,0.1)] text-gray-300";
@@ -338,12 +338,10 @@ const QuizSystem = ({ onFinished }: QuizProps) => {
             return (
               <motion.button
                 key={idx}
-                // Hapus efek hover kalau sedang tidak netral
                 whileHover={status === 'neutral' ? { scale: 1.02, x: 5 } : {}}
                 whileTap={status === 'neutral' ? { scale: 0.98 } : {}}
                 animate={status === 'wrong' && isClicked ? { x: [-5, 5, -5, 5, 0] } : {}} 
                 onClick={() => handleAnswer(idx)}
-                // Kunci tombol total kalau lagi proses
                 disabled={status !== 'neutral'} 
                 className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-300 flex justify-between items-center group relative overflow-hidden ${buttonStyle}`}
               >
